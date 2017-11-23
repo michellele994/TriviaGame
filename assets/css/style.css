@@ -1,0 +1,41 @@
+body {
+	background-image: url("../images/gamebg.png");
+	background-repeat: repeat;
+	margin-top: 20px;
+	font-size: 16px;
+	font-family: 'Quicksand', sans-serif;
+}
+button {
+	padding: 5px;
+}
+h1 {
+	font-size: 40px;
+	font-weight: bold;
+	padding: 50px 0px 20px 0px;
+}
+h6 {
+	font-weight: bold;
+	display:inline-block;
+}
+p{
+	line-height: 25px;
+	display: inline-block;
+}
+.wrapping {
+	width: 900px;
+	margin: 0 auto;
+	text-align: center;
+}
+.gamebox {
+	position:relative;
+	width: 900px;
+	height: 550px;
+	background-color: rgb(254,243,244);
+	border-radius: 25px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+#startimage {
+	margin: 20px;
+}
