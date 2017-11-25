@@ -7,6 +7,9 @@ body {
 }
 button {
 	padding: 5px;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: 'Quicksand', sans-serif;
 }
 h1 {
 	font-size: 40px;
@@ -26,7 +29,7 @@ p{
 	margin: 0 auto;
 	text-align: center;
 }
-.gamebox {
+#gamebox {
 	position:relative;
 	width: 900px;
 	height: 550px;
@@ -35,7 +38,52 @@ p{
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
+	padding: 15px;
 }
 #startimage {
+	display: inline-block;
 	margin: 20px;
+	width: 258px;
+	height: 298px;
+	background-image: url("../images/momgif.gif");
+	background-repeat: repeat;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+#choice1 {
+	display: inline-block;
+	text-align: center;
+	width: 180px;
+	height: 150px;
+	margin: 10px;
+}
+#choice2 {
+	display: inline-block;
+	text-align: center;
+	width: 180px;
+	height: 150px;
+	margin: 10px;
+}
+#choice3 {
+	display: inline-block;
+	text-align: center;
+	width: 180px;
+	height: 150px;
+	margin: 10px;
+}
+#choice4 {
+	display: inline-block;
+	text-align: center;
+	width: 180px;
+	height: 150px;
+	margin: 10px;
+}
+#eggtimer {
+	position: absolute;
+	bottom: 20px;
+	left: 375px;
+}
+#winlose {
+	background-color: blue;
 }

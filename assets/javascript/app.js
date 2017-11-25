@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	//These variables set answers for certain questions in the trivia game.
+	var trashChoice = Math.floor(Math.random() * 10)+3;
+	var roomChoice = Math.floor(Math.random() * 10)+3;
+	//This a large, large (probably inefficient) array of trivia questions, their answers, and the answers to the answers (whether or not they are true/false)
 	var questions =
 	[
 		["When is mom's birthday?", 
@@ -8,7 +12,7 @@ $(document).ready(function(){
 		 	["165F", "200F", "150F", "175F"],
 		 		[true, false, false, false]],
 		["You are helping mom pick out new towels for the kitchen. Eggshell or creme?",
-		 	["Cream, Eggshell, neither, both"],
+		 	["Cream", "Eggshell", "neither", "both"],
 		 		[false, true, false, false]],
 		["How many times did mom remind you to take out the trash?",
 		 	[trashChoice-2, trashChoice-1, trashChoice, trashChoice+1],
@@ -63,12 +67,76 @@ $(document).ready(function(){
 		 		[true, false, false, false]]
 	];
 
-	var trashChoice = Math.floor(Math.random() * 10);
-	var roomChoice = Math.floor(Math.random() * 10);
+	//Initializing variables...
+	var showQuestion;
+	var countdown;
+	var qCount = 0;
+	var tCount = 0;
+	var timer = 4;
 
+
+	//This clears the HTML document of any annoying divs, for the appeal of the title of the game.
+	$("#timer").html("");
+
+	//When the "Start" button is clicked, the game will play!
 	$("#startbutton").click(function() {
+		//Clearing the divs which held the title contents to make room for the game
 		$("#beginning").html("");
-		$("#question").html("<h1>"+questions[0][0]+"</h1>");
-		$("#choices").html(questions[0][1][0]);
+		//"nextQuestion" function runs first so that the first question shows up right away.
+		nextQuestion();
+		//The following questions afterwards will appear in timed intervals.
+		showQuestion = setInterval(nextQuestion, 8000);
+		//This checks to see if the user had clicked the right answer.
+		$("#choice1").click(function() {
+			checkRightWrong(0);
+		});
+		$("#choice2").click(function() {
+			checkRightWrong(1);
+		});
+		$("#choice3").click(function() {
+			checkRightWrong(2);
+		});
+		$("#choice4").click(function() {
+			checkRightWrong(3);
+		});
+	
 	});
+	function nextQuestion() {
+		if (qCount < questions.length){
+			countdown = setInterval(updateTime, 1000);
+			setResponses();
+		}
+	}
+
+	function setResponses() {
+		$("#question").html("<h1>"+questions[qCount][0]+"</h1>");
+		$("#timer").html("<div id='eggtimer'></div>");
+		$("#choice1").html("<button id=choice1>" + questions[qCount][1][0] + "</button>");
+		$("#choice2").html("<button id=choice2>" + questions[qCount][1][1] + "</button>");
+		$("#choice3").html("<button id=choice3>" + questions[qCount][1][2] + "</button>");
+		$("#choice4").html("<button id=choice4>" + questions[qCount][1][3] + "</button>");
+		tCount++;
+		qCount++;
+	}
+	function checkRightWrong(choice) {
+		if (questions[qCount-1][2][choice])
+		{
+			console.log("You win");
+		}
+		else
+		{
+			console.log("You lose");
+		}
+	}
+	function updateTime() {
+		if (timer > 0){
+			timer--;
+			$("#eggtimer").html("Seconds left: 0" + timer);
+		}
+		else if (timer <= 0){
+			clearInterval(countdown);
+			$("#eggtimer").html("Seconds left: 0" + timer);
+			timer=4;
+		}
+	}
 });
