@@ -14,7 +14,7 @@ button {
 h1 {
 	font-size: 40px;
 	font-weight: bold;
-	padding: 50px 0px 20px 0px;
+	padding: 25px 0px 20px 0px;
 }
 h6 {
 	font-weight: bold;
@@ -54,36 +54,45 @@ p{
 #choice1 {
 	display: inline-block;
 	text-align: center;
-	width: 180px;
-	height: 150px;
+	width: 150px;
+	height: 75px;
 	margin: 10px;
 }
 #choice2 {
 	display: inline-block;
 	text-align: center;
-	width: 180px;
-	height: 150px;
+	width: 150px;
+	height: 75px;
 	margin: 10px;
 }
 #choice3 {
 	display: inline-block;
 	text-align: center;
-	width: 180px;
-	height: 150px;
+	width: 150px;
+	height: 75px;
 	margin: 10px;
 }
 #choice4 {
 	display: inline-block;
 	text-align: center;
-	width: 180px;
-	height: 150px;
+	width: 150px;
+	height: 75px;
 	margin: 10px;
+}
+#restartbutton {
+	margin: 0;
 }
 #eggtimer {
 	position: absolute;
 	bottom: 20px;
 	left: 375px;
 }
-#winlose {
-	background-color: blue;
+#popupdiv {
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	height: 15px;
+	width: 150px;
+	font-size: 10px;
+	opacity: 0.4;
 }
